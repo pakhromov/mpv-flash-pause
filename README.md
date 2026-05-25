@@ -1,6 +1,6 @@
 # mpv-flash-pause
 
-Displays an animated pause/play icon overlay when playback state changes. The icon scales up and fades out over a short animation.
+Displays a highly customizable animated pause/play icon overlay when playback state changes. The icon scales up and fades out over a short animation.
 
 https://github.com/user-attachments/assets/e220aa4e-905f-4f49-bdbd-cb66ed845f12
 
