@@ -7,9 +7,9 @@ local opt = {
     icon_alpha_end = 50,
     animation_duration = 0.35,
     scale_factor = 1.5,
-    color = "000000",
+    color = "#000000",
     outline_thickness = 3,
-    outline_color = "FFFFFF",
+    outline_color = "#FFFFFF",
     outline_alpha_start = 100,
     outline_alpha_end = 50
 }
@@ -19,11 +19,13 @@ local state = {
 }
 
 mpopt.read_options(opt, "pause")
+opt.color = opt.color:gsub("^#", "")
+opt.outline_color = opt.outline_color:gsub("^#", "")
 
 local function draw_color(color, section)
-    local bgr = string.sub(color, 1, 6)
-    local opacity = string.sub(color, 7, 8)
-    return '{\\' .. section .. 'c&H' .. bgr .. '&}{\\' .. section .. 'a&H' .. opacity .. '&}'
+    local r, g, b = color:sub(1,2), color:sub(3,4), color:sub(5,6)
+    local opacity = color:sub(7, 8)
+    return '{\\' .. section .. 'c&H' .. b..g..r .. '&}{\\' .. section .. 'a&H' .. opacity .. '&}'
 end
 
 local function draw_rounded_rect(x, y, w, h, color, radius, outline_color, bw)
